@@ -1,30 +1,57 @@
 document.addEventListener('DOMContentLoaded', function (event){
-  function computerPlay() {
+  let playerScore = 0
+  let compScore = 0
+  const currentPlayerScore =  document.querySelector('#pScore')
+  const currentCompScore = document.querySelector('#cScore')
+  const playByPlay = document.querySelector('#playByPlay')
+  const playerCurrentChoice = document.querySelector('#playerChoice')
+  const compCurrentChoice = document.querySelector('#compChoice')
+  const rock = document.querySelector('#r')
+  const paper = document.querySelector('#p')
+  const scissors = document.querySelector('#s')
+
+  function computerShoots() {
     // randomly chooses a move
-    let moves = ['rock', 'paper', 'scissors']
-    return moves[Math.floor(Math.random() * moves.length)]
+    let moves = ['r', 'p', 's']
+    return moves[Math.floor(Math.random() * 3)]
+  }
+  
+  rock.addEventListener('click', event => playRound('r'))
+  paper.addEventListener('click', event => playRound('p'))
+  scissors.addEventListener('click', event => playRound('s'))
+
+  function win() {
+    playerScore++
+    currentPlayerScore
   }
 
-  function playRound(playerA, playerB) {
+  function lose() {
+
+  }
+
+  function tie() {
+
+  }
+
+  function playRound(playerA) {
     // Outcome conditions
-    if (playerA == 'rock' && playerB == 'paper') {
-      return `You lose.`
-    } else if (playerA == 'rock' && playerB == 'rock') {
-      return `Draw.`
-    } else if (playerA == 'rock' && playerB == 'scissors') {
-      return `You win.`
-    } else if (playerA == 'paper' && playerB == 'scissors') {
-      return `You lose.`
-    } else if (playerA == 'paper' && playerB == 'paper') {
-      return `Draw.`
-    } else if (playerA == 'paper' && playerB == 'rock') {
-      return `You win.`
-    } else if (playerA == 'scissors' && playerB == 'rock') {
-      return `You lose.`
-    } else if (playerA == 'scissors' && playerB == 'scissors') {
-      return `Draw.`
-    } else if (playerA == 'scissors' && playerB == 'paper') {
-      return `You win.`
+    const compPick = computerShoots()
+    switch (playerA + compPick) {
+      case 'rs':
+      case 'pr':
+      case 'sp':
+        win()
+        break;
+      case 'rp':
+      case 'ps':
+      case 'sr':
+        lose()
+        break;
+      case 'rr':
+      case 'ss':
+      case 'pp':
+       tie()
+       break;
     }
   }
 
