@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function (event){
     let moves = ['r', 'p', 's']
     return moves[Math.floor(Math.random() * 3)]
   }
-  
+  // player chooses move
   rock.addEventListener('click', event => playRound('r'))
   paper.addEventListener('click', event => playRound('p'))
   scissors.addEventListener('click', event => playRound('s'))
-
+  // outcomes
   function win() {
     playerScore++
     currentPlayerScore
