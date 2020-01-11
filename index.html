@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <title>Rock Paper Scissors Shoot!</title>
     <link rel="stylesheet" href="css/stylesheet.css">
-    <script type="text/javascript" src="js/game.js"></script>
   </head>
   <body>
     <div class="heading">
-      <h1>👊 ✋ ✌️ 🔫</h1>
+      <h1><span class="compMoves" id="cr">👊</span>
+          <span class="compMoves" id="cp">✋</span>
+          <span class="compMoves" id="cs">✌️</span>
+          <span class="compMoves" id="shoot">🔫</span></h1>
     </div>
     <div id="scoreboard">
       <h2><span id="pScore">0</span> 👨🏻‍💻 💻 <span id="cScore">0<span></h2>
-      <p id="playByPlay">Paper wraps rocks</p>
+      <p id="playByPlay">Your Move</p>
     </div>
     <div id="game">
        <div id="playerChoice"></div>
@@ -25,4 +27,5 @@
     </div>
 
   </body>
+  <script type="text/javascript" src="js/game.js"></script>
 </html>
