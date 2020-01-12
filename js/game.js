@@ -1,12 +1,12 @@
-// document.addEventListener('DOMContentLoaded', function (event){
+document.addEventListener('DOMContentLoaded', function (event){
   let playerScore = 0
   let compScore = 0
   let ties = 0
-  const currentPlayerScore =  document.querySelector('#pScore')
-  const currentCompScore = document.querySelector('#cScore')
-  const playByPlay = document.querySelector('#playByPlay')
-  const playerCurrentChoice = document.querySelector('#playerChoice')
-  const compCurrentChoice = document.querySelector('#compChoice')
+  const currentPlayerScore =  document.querySelector('#p-score')
+  const currentCompScore = document.querySelector('#c-score')
+  const playByPlay = document.querySelector('#play-by-play')
+  const playerCurrentChoice = document.querySelector('#player-choice')
+  const compCurrentChoice = document.querySelector('#comp-choice')
   const rock = document.querySelector('#r')
   const paper = document.querySelector('#p')
   const scissors = document.querySelector('#s')
@@ -23,20 +23,12 @@
   }
   // outcomes
   function win() {
-    if (playerScore >= 4) {
-      currentPlayerScore.innerHTML = playerScore
-      return reset()
-    }
     playerScore++
     currentPlayerScore.innerHTML = playerScore
     playByPlay.innerHTML = `You Win`
   }
 
   function lose() {
-    if (compScore >= 4) {
-      playByPlay.innerHTML = `You Lose`
-      return reset()
-    }
     compScore++
     currentCompScore.innerHTML = compScore
     playByPlay.innerHTML = `You Lose`
@@ -79,13 +71,4 @@
        break;
     }
   }
-
-  function fiveRounds(playerA) {
-    for (var i = 0; i < 5; i++) {
-      return playRound(playerA)
-     }
-  }
-// five rounds go automatically
-// need to wait each loop
-
-// })
+})

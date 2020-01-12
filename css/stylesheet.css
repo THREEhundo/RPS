@@ -18,6 +18,9 @@ li {
   display: inline-block;
   font-size: 2em;
 }
+.comp-moves {
+
+}
 .pulsate-fwd:hover {
 	-webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
 	        animation: pulsate-fwd 0.5s ease-in-out infinite both;
