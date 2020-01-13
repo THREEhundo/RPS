@@ -19,6 +19,7 @@
   const pBpScissors = document.querySelector('#scissors-text')
   const pBpShoot = document.querySelector('#shoot-text')
   const ul = document.querySelector('ul')
+  const header = document.querySelector('#comp-header')
   // actions to take
   // rock fade in
   // paper fade in
@@ -26,7 +27,7 @@
   // shoot fade in
   // rock paper scissors fade out
   // at end of round show comp pick
-  ul.style.display = 'none'
+  noDisplay(ul)
 
   function stopAnimation(animation) {
     animation.classList.remove('text-blur-out')
@@ -34,13 +35,20 @@
   function startAnimation(animation) {
     animation.classList.add('text-blur-out')
   }
-  function noDisplay() {
+  function hideSpans() {
     compRock.style.visibility = 'hidden'
     compPaper.style.visibility = 'hidden'
     compScissors.style.visibility = 'hidden'
+    header.style.display = 'none'
+  }
+  function visible(el) {
+    el.style.visibility = 'visible'
   }
   function display(el) {
-    el.style.visibility = ''
+    el.style.display = ''
+  }
+  function noDisplay(el) {
+    el.style.display = 'none'
   }
   function loadingScreen() {
     setTimeout(function() {
@@ -60,9 +68,10 @@
       stopAnimation(pBpScissors)
       setTimeout(startAnimation(compScissors), 0)
       setTimeout(startAnimation(pBpScissors), 0)
+      // header vis hidden
     }, 5000)
-  setTimeout(noDisplay, 11000)
-  setTimeout(() => ul.style.display = '', 11000)
+  setTimeout(hideSpans, 11000)
+  setTimeout(() => display(ul), 11000)
   }
   loadingScreen()
   // player chooses move
@@ -103,25 +112,37 @@
 
   function showCompMove(pick) {
     if (pick === 'r') {
+      display(header)
       stopAnimation(compRock)
+      visible(compRock)
       display(compRock)
-      compRock.style.display = 'block'
+      noDisplay(compPaper)
+      noDisplay(compScissors)
       window.setTimeout(function() {
-        compRock.style.display = 'none'
+        noDisplay(compRock)
+        noDisplay(header)
       }, 3500)
     } if (pick === 'p') {
+      display(header)
       stopAnimation(compPaper)
+      visible(compPaper)
       display(compPaper)
-      compPaper.style.display = 'block'
+      noDisplay(compRock)
+      noDisplay(compScissors)
       window.setTimeout(function() {
-        compPaper.style.display = 'none'
+        noDisplay(compPaper)
+        noDisplay(header)
       }, 3500)
     } if (pick === 's') {
+      display(header)
       stopAnimation(compScissors)
+      visible(compScissors)
       display(compScissors)
-      compScissors.style.display = 'block'
+      noDisplay(compPaper)
+      noDisplay(compRock)
       window.setTimeout(function() {
-        compScissors.style.display = 'none'
+        noDisplay(compScissors)
+        noDisplay(header)
       }, 3500)
     }
   }
