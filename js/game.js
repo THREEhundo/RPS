@@ -39,6 +39,9 @@
     compPaper.style.visibility = 'hidden'
     compScissors.style.visibility = 'hidden'
   }
+  function display(el) {
+    el.style.visibility = ''
+  }
   function loadingScreen() {
     setTimeout(function() {
       stopAnimation(compRock)
@@ -100,16 +103,22 @@
 
   function showCompMove(pick) {
     if (pick === 'r') {
+      stopAnimation(compRock)
+      display(compRock)
       compRock.style.display = 'block'
       window.setTimeout(function() {
         compRock.style.display = 'none'
       }, 3500)
     } if (pick === 'p') {
+      stopAnimation(compPaper)
+      display(compPaper)
       compPaper.style.display = 'block'
       window.setTimeout(function() {
         compPaper.style.display = 'none'
       }, 3500)
     } if (pick === 's') {
+      stopAnimation(compScissors)
+      display(compScissors)
       compScissors.style.display = 'block'
       window.setTimeout(function() {
         compScissors.style.display = 'none'
