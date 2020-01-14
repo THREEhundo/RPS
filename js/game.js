@@ -20,13 +20,7 @@
   const pBpShoot = document.querySelector('#shoot-text')
   const ul = document.querySelector('ul')
   const header = document.querySelector('#comp-header')
-  // actions to take
-  // rock fade in
-  // paper fade in
-  // scissors fade in
-  // shoot fade in
-  // rock paper scissors fade out
-  // at end of round show comp pick
+
   noDisplay(ul)
 
   function stopAnimation(animation) {
@@ -39,7 +33,6 @@
     compRock.style.visibility = 'hidden'
     compPaper.style.visibility = 'hidden'
     compScissors.style.visibility = 'hidden'
-    header.style.display = 'none'
   }
   function visible(el) {
     el.style.visibility = 'visible'
@@ -74,10 +67,34 @@
   setTimeout(() => display(ul), 11000)
   }
   loadingScreen()
+
+  // put eventlisteners in variables
+  // create removeEventListener()
+  // remove eventlisteners off while comp move is shown
+  // add eventlisteners when comp move finishes.
+
+  // change addEventListener anonymous to variable
+  function clickRock() {
+    playRound('r')
+  }
+  function clickPaper() {
+    playRound('p')
+  }
+  function clickScissors() {
+    playRound('s')
+  }
   // player chooses move
-  rock.addEventListener('click', event => playRound('r'))
-  paper.addEventListener('click', event => playRound('p'))
-  scissors.addEventListener('click', event => playRound('s'))
+  addEventListeners()
+  function addEventListeners() {
+    rock.addEventListener('click', clickRock)
+    paper.addEventListener('click', clickPaper)
+    scissors.addEventListener('click', clickScissors)
+  }
+  function removeEventListeners() {
+    rock.removeEventListener('click', clickRock)
+    paper.removeEventListener('click', clickPaper)
+    scissors.removeEventListener('click', clickScissors)
+  }
 
   function computerShoots() {
     // randomly chooses a move
@@ -112,7 +129,6 @@
 
   function showCompMove(pick) {
     if (pick === 'r') {
-      display(header)
       stopAnimation(compRock)
       visible(compRock)
       display(compRock)
@@ -120,10 +136,8 @@
       noDisplay(compScissors)
       window.setTimeout(function() {
         noDisplay(compRock)
-        noDisplay(header)
       }, 3500)
     } if (pick === 'p') {
-      display(header)
       stopAnimation(compPaper)
       visible(compPaper)
       display(compPaper)
@@ -131,10 +145,8 @@
       noDisplay(compScissors)
       window.setTimeout(function() {
         noDisplay(compPaper)
-        noDisplay(header)
       }, 3500)
     } if (pick === 's') {
-      display(header)
       stopAnimation(compScissors)
       visible(compScissors)
       display(compScissors)
@@ -142,34 +154,31 @@
       noDisplay(compRock)
       window.setTimeout(function() {
         noDisplay(compScissors)
-        noDisplay(header)
       }, 3500)
     }
   }
 
   function playRound(playerA) {
     // Outcome conditions
+    removeEventListeners()
     const compPick = computerShoots()
     switch (playerA + compPick) {
       case 'rs':
       case 'pr':
       case 'sp':
-        console.log(compPick);
-        showCompMove(compPick)
+        showCompMove(compPick) //click disabled
         win()
         break;
       case 'rp':
       case 'ps':
       case 'sr':
-        console.log(compPick);
         showCompMove(compPick)
         lose()
         break;
       case 'rr':
       case 'ss':
       case 'pp':
-        console.log(compPick);
-        showCompMove(compPick)
+       showCompMove(compPick)
        tie()
        break;
     }
