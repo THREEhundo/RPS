@@ -131,27 +131,27 @@
     if (pick === 'r') {
       stopAnimation(compRock)
       visible(compRock)
-      display(compRock)
       noDisplay(compPaper)
       noDisplay(compScissors)
+
       window.setTimeout(function() {
         noDisplay(compRock)
       }, 3500)
     } if (pick === 'p') {
       stopAnimation(compPaper)
       visible(compPaper)
-      display(compPaper)
       noDisplay(compRock)
       noDisplay(compScissors)
+
       window.setTimeout(function() {
         noDisplay(compPaper)
       }, 3500)
     } if (pick === 's') {
       stopAnimation(compScissors)
       visible(compScissors)
-      display(compScissors)
-      noDisplay(compPaper)
       noDisplay(compRock)
+      noDisplay(compPaper)
+
       window.setTimeout(function() {
         noDisplay(compScissors)
       }, 3500)
