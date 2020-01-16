@@ -134,7 +134,7 @@
       noDisplay(compPaper)
       noDisplay(compScissors)
 
-      window.setTimeout(function() {
+      setTimeout(function() {
         noDisplay(compRock)
       }, 3500)
     } if (pick === 'p') {
@@ -143,7 +143,7 @@
       noDisplay(compRock)
       noDisplay(compScissors)
 
-      window.setTimeout(function() {
+      setTimeout(function() {
         noDisplay(compPaper)
       }, 3500)
     } if (pick === 's') {
@@ -152,7 +152,7 @@
       noDisplay(compRock)
       noDisplay(compPaper)
 
-      window.setTimeout(function() {
+      setTimeout(function() {
         noDisplay(compScissors)
       }, 3500)
     }
