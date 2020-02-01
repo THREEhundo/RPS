@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     });
   }
 
-
   async function showCompMove(pick) {
     if (pick === "r") {
       visible(compRock); // make span visible
